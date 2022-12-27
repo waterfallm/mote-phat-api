@@ -76,4 +76,32 @@ async def rgb(payload: Request = Body(...)):
 
         motephat.show()
 
-        return {"message": "RGB set RGB"}
+        return {"message": "RGB set Red"}
+    
+    @app.get("/rgb/green")
+    async def rgb(payload: Request = Body(...)):
+
+     while True:
+
+        for channel in range(4):
+            for pixel in range(16):
+                motephat.set_pixel(channel + 1, pixel, 0, 255, 0)
+            time.sleep(0.01)
+
+        motephat.show()
+
+        return {"message": "RGB set Green"}
+
+    @app.get("/rgb/blue")
+    async def rgb(payload: Request = Body(...)):
+
+     while True:
+
+        for channel in range(4):
+            for pixel in range(16):
+                motephat.set_pixel(channel + 1, pixel, 0, 0, 255)
+            time.sleep(0.01)
+
+        motephat.show()
+
+        return {"message": "RGB set Blue"}
