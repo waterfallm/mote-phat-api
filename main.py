@@ -65,44 +65,44 @@ async def rgb(payload: Request = Body(...)):
 
 
 
-    @app.get("/rgb/red")
-    async def rgb(payload: Request = Body(...)):
+@app.get("/rgb/red")
+async def rgb(payload: Request = Body(...)):
 
-     while True:
+    while True:
 
         for channel in range(4):
             for pixel in range(16):
                 motephat.set_pixel(channel + 1, pixel, 255, 0, 0)
             time.sleep(0.01)
 
-        motephat.show()
+    motephat.show()
 
-        return {"message": "RGB set Red"}
+    return {"message": "RGB set Red"}
     
-    @app.get("/rgb/green")
-    async def rgb(payload: Request = Body(...)):
+@app.get("/rgb/green")
+async def rgb(payload: Request = Body(...)):
 
-     while True:
+    while True:
 
         for channel in range(4):
             for pixel in range(16):
                 motephat.set_pixel(channel + 1, pixel, 0, 255, 0)
             time.sleep(0.01)
 
-        motephat.show()
+    motephat.show()
 
-        return {"message": "RGB set Green"}
+    return {"message": "RGB set Green"}
 
-    @app.get("/rgb/blue")
-    async def rgb(payload: Request = Body(...)):
+@app.get("/rgb/blue")
+async def rgb(payload: Request = Body(...)):
 
-     while True:
+    while True:
 
         for channel in range(4):
             for pixel in range(16):
                 motephat.set_pixel(channel + 1, pixel, 0, 0, 255)
             time.sleep(0.01)
 
-        motephat.show()
+    motephat.show()
 
-        return {"message": "RGB set Blue"}
+    return {"message": "RGB set Blue"}
