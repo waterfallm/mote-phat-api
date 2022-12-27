@@ -1,7 +1,7 @@
 from fastapi import Body, FastAPI, Request, logger , Form
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
-from fastapi.templating import Jinja2Templates
+# from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel
 
 import sys
@@ -22,11 +22,12 @@ app = FastAPI()
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
-templates = Jinja2Templates(directory="templates")
+# templates = Jinja2Templates(directory="templates")
 
 @app.get("/")
 async def root(request: Request):
-    return templates.TemplateResponse("rgb.html", {"request": request})
+    # return templates.TemplateResponse("rgb.html", {"request": request})
+    return {"message": "ROOT"}
 
 
 
