@@ -45,7 +45,7 @@ async def root(request: Request):
 
 @app.post("/rgb")
 async def rgb(
-    # background_tasks: BackgroundTasks,
+    background_tasks: BackgroundTasks,
     payload: Payload = Body(
         examples={
             "Red": {
