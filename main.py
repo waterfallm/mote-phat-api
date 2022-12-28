@@ -21,12 +21,12 @@ motephat.set_clear_on_exit(True)
 app = FastAPI()
 
 def write_rgb(red: int, blue: int,green: int,):
-    while True:
-
-        for channel in range(4):
-            for pixel in range(16):
-                motephat.set_pixel(channel + 1, pixel, red, blue, green)
-            time.sleep(0.01)
+    print(red, blue, green)
+    # while True:
+    for channel in range(4):
+        for pixel in range(16):
+            motephat.set_pixel(channel + 1, pixel, red, blue, green)
+        time.sleep(0.01)
 
     motephat.show()
 
