@@ -43,49 +43,50 @@ async def root(request: Request):
 
 
 
-@app.post("/rgb")
-async def rgb(
-    background_tasks: BackgroundTasks,
-    payload: Payload = Body(
-        examples={
-            "Red": {
-                "summary" : "Red",
-                "description": "Red",
-                "value" : {
-                    "R" : "255",
-                    "G" : "0",
-                    "B" : "0"
-                }
-            },
-           "Blue": {
-                "summary" : "Blue",
-                "description": "Blue",
-                 "value" : {
-                    "R" : "0",
-                    "G" : "0",
-                    "B" : "255"
-                }
-            },
-            "Green": {
-                "summary" : "Green",
-                "description": "Green",
-                "value" : {
-                    "R" : "0",
-                    "G" : "255",
-                    "B" : "0"
-                }
-            }
-        })
+# @app.post("/rgb")
+# async def rgb(
+#     request: Request,
+#     payload: Payload = Body(
+#         examples={
+#             "Red": {
+#                 "summary" : "Red",
+#                 "description": "Red",
+#                 "value" : {
+#                     "R" : "255",
+#                     "G" : "0",
+#                     "B" : "0"
+#                 }
+#             },
+#            "Blue": {
+#                 "summary" : "Blue",
+#                 "description": "Blue",
+#                  "value" : {
+#                     "R" : "0",
+#                     "G" : "0",
+#                     "B" : "255"
+#                 }
+#             },
+#             "Green": {
+#                 "summary" : "Green",
+#                 "description": "Green",
+#                 "value" : {
+#                     "R" : "0",
+#                     "G" : "255",
+#                     "B" : "0"
+#                 }
+#             }
+#         }
+#         ),
+#         background_tasks: BackgroundTasks
+#     ):
     
-    ):
-    
-    r= payload["R"]
-    g= payload["G"]
-    b= payload["B"]
+#     r= payload["R"]
+#     g= payload["G"]
+#     b= payload["B"]
 
-    print(payload)
-    background_tasks.add_task(write_rgb, r, g, b)
-    return {"message": "RGB set RGB"}
+#     print(payload)
+#     background_tasks.add_task(write_rgb, r, g, b)
+#     return {"message": "RGB set RGB"}
 
 
 
