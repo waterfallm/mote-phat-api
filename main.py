@@ -25,7 +25,7 @@ def write_rgb(red: int, blue: int,green: int,):
     # while True:
     for channel in range(4):
         for pixel in range(16):
-            motephat.set_pixel(channel + 1, pixel, red, blue, green)
+            motephat.set_pixel(channel + 1, pixel, red, green , blue )
         time.sleep(0.01)
 
     motephat.show()
@@ -85,13 +85,13 @@ async def rgb(background_tasks: BackgroundTasks):
 @app.get("/rgb/green")
 async def rgb(background_tasks: BackgroundTasks):
 
-    background_tasks.add_task(write_rgb, 0, 0, 255)
+    background_tasks.add_task(write_rgb, 0, 255 ,0 )
 
     return {"message": "RGB set Green"}
 
 @app.get("/rgb/blue")
 async def rgb(background_tasks: BackgroundTasks):
 
-    background_tasks.add_task(write_rgb, 0, 255, 0)
+    background_tasks.add_task(write_rgb, 0, 0 , 255)
 
     return {"message": "RGB set Blue"}
