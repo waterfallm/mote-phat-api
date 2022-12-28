@@ -95,3 +95,10 @@ async def rgb(background_tasks: BackgroundTasks):
     background_tasks.add_task(write_rgb, 0, 0 , 255)
 
     return {"message": "RGB set Blue"}
+
+@app.get("/rgb/off")
+async def rgb(background_tasks: BackgroundTasks):
+
+    background_tasks.add_task(write_rgb, 0, 0 , 0)
+
+    return {"message": "RGB set OFF"}
